@@ -1,9 +1,7 @@
 import { hours } from '../Data'
-import { cities } from '../Data'
-import { Totals } from '../Data'
+import {numbers} from '../Data'
 
-
-export default function ReportTable() {
+export default function ReportTable({result}) {
 
 
     return (
@@ -20,29 +18,25 @@ export default function ReportTable() {
                 </thead>
 
                 <tbody>
-
-                    {cities.map((i) => (
-                        <>
+                        {result.map((i)=>(
                             <tr className=' bg-green-300'>
-                                {i.map(e => (
+                                <td className='border border-black '>{i.location}</td>
+                                {numbers.map((e)=>(
                                     <td className='border border-black '>{e}</td>
                                 ))}
+
                             </tr>
-                        </>
-                    ))}
-
-
+                        ))}
                 </tbody>
-
                 <tfoot>
 
-                    <tr className=' bg-green-400' >
-                        {Totals.map(a => (
-
-                            <td className='border border-black '>{a}</td>
-                        ))}
-                    </tr>
-                </tfoot>
+                        <tr className=' bg-green-400' >
+                            <td>Totals</td>
+                            {numbers.map((a)=>(
+                                <td>{a * result.length}</td>
+                            ))}
+                        </tr>
+                    </tfoot>
             </table>
         </div>
     )

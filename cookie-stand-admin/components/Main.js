@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export default function Main(){
+export default function Main({result,setResult}){
 
-    const [result,setResult] = useState({})
+    
   
     function cookie(event) {
       event.preventDefault();
@@ -13,11 +13,7 @@ export default function Main(){
         ava : event.target.ava.value
   
       }
-      setResult(obj)
-      
-      // event.target.location.value
-  
-      // # the "location" is the name that i passed in the input to print for me the value that i enterd insied location form
+      setResult([...result,obj])
   } 
   
       return (
@@ -46,15 +42,6 @@ export default function Main(){
               </div>
             </div>
           </form>
-          
-        {/* <div>
-          <h2>Last Created Cookie Stand:</h2>
-          <p className="p-2 text-2xl ">Location: {result.location}</p>
-          <p className="p-2 text-2xl ">Minimum: {result.min}</p>
-          <p className="p-2 text-2xl ">Maximum: {result.max}</p>
-          <p className="p-2 text-2xl ">Average: {result.ava}</p>
-        </div> */}
-      
         </main>
       )
   
