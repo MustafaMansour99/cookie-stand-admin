@@ -19,6 +19,12 @@ export default function Home() {
     </Head>
     
     <Header />
+    {result && (
+        <div className="p-5">
+          <h2 className="text-2xl font-bold">Last Created Cookie Stand:</h2>
+          <pre>{JSON.stringify(result, null, 2)}</pre>
+        </div>
+      )}
     <Main  result ={result} setResult ={setResult}/>
     {
 
